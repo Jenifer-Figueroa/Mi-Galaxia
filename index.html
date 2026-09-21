@@ -78,22 +78,21 @@
     }
 
     .photo-card p {
-      font-size: clamp(0.5rem, 1.8vw, 0.68rem);
+      font-size: clamp(0.55rem, 1.8vw, 0.72rem);
       text-align: center;
       margin-top: 4px;
       color: #ffd7ec;
       font-weight: 500;
       text-shadow: 0 0 6px rgba(255, 95, 168, 0.6);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      word-wrap: break-word;
+      line-height: 1.2;
     }
 
     /* Posicionamiento adaptable */
     .pos-top-left     { top: 8vh; left: 3vw; animation-delay: 0s; }
     .pos-top-right    { top: 8vh; right: 3vw; animation-delay: 2.4s; }
     
-    /* Se eleva el bottom para dar lugar a la caja de música */
     .pos-bottom-left  { bottom: 18vh; left: 3vw; animation-delay: 1.2s; }
     .pos-bottom-right { bottom: 18vh; right: 3vw; animation-delay: 3.6s; }
 
@@ -260,7 +259,7 @@
     </div>
   </div>
 
-  <!-- Tu etiqueta de audio original -->
+  <!-- Etiqueta de audio -->
   <audio id="bg-audio" loop autoplay src="/Music/Por Eso Te Amo (Reempaque).mp3" preload="metadata"></audio>
 
   <!-- Librerías Three.js -->
