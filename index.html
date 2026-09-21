@@ -17,7 +17,6 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      /* Fondo espacio nebulosa */
       background: radial-gradient(circle at center, #1b0228 0%, #0c0114 50%, #020108 100%);
       font-family: 'Poppins', sans-serif;
       color: #fff;
@@ -40,39 +39,39 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 20px;
+      padding: 12px;
     }
 
     /* Título Superior */
     .title-wrap {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 5px;
     }
 
     .title-wrap h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
       color: #ffe3f2;
       text-shadow: 0 0 12px #ff5fa8, 0 0 30px #ff5fa8, 0 0 50px rgba(255, 95, 168, 0.6);
     }
 
     .title-wrap p {
-      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
       color: #e6d4ff;
       text-shadow: 0 0 10px rgba(164, 99, 255, 0.8);
       letter-spacing: 0.05em;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     /* Tarjetas de Fotos Estilo Polaroid */
     .photo-card {
       position: absolute;
-      width: clamp(120px, 14vw, 160px);
+      width: clamp(95px, 11vw, 160px);
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(8px);
-      padding: 8px;
-      border-radius: 12px;
+      padding: 6px;
+      border-radius: 10px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 95, 168, 0.25);
       pointer-events: auto;
       animation: floatAuto 5s ease-in-out infinite alternate;
@@ -82,71 +81,99 @@
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 6px;
       display: block;
     }
 
     .photo-card p {
-      font-size: 0.65rem;
+      font-size: clamp(0.55rem, 1.2vw, 0.75rem);
       text-align: center;
-      margin-top: 6px;
+      margin-top: 4px;
       color: #ffd7ec;
       font-weight: 500;
       text-shadow: 0 0 6px rgba(255, 95, 168, 0.6);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* Ubicaciones de las Fotos */
+    /* Posicionamiento en Pantallas Grandes */
     .pos-top-left     { top: 12%; left: 4%; animation-delay: 0s; }
-    .pos-bottom-left  { bottom: 12%; left: 5%; animation-delay: 1.2s; }
+    .pos-bottom-left  { bottom: 18%; left: 4%; animation-delay: 1.2s; }
     .pos-top-right    { top: 12%; right: 4%; animation-delay: 2.4s; }
-    .pos-bottom-right { bottom: 12%; right: 5%; animation-delay: 3.6s; }
+    .pos-bottom-right { bottom: 18%; right: 4%; animation-delay: 3.6s; }
+
+    /* AJUSTES RESPONSIVOS PARA CELULARES */
+    @media (max-width: 600px) {
+      .photo-card {
+        width: 105px;
+        padding: 5px;
+      }
+
+      .pos-top-left     { top: 11%; left: 3%; }
+      .pos-top-right    { top: 11%; right: 3%; }
+      .pos-bottom-left  { bottom: 17%; left: 3%; }
+      .pos-bottom-right { bottom: 17%; right: 3%; }
+
+      .player-card {
+        bottom: 12px !important;
+        width: 92vw !important;
+        padding: 10px 14px !important;
+      }
+
+      .track-title {
+        font-size: 0.85rem !important;
+      }
+
+      .track-sub {
+        font-size: 0.68rem !important;
+      }
+
+      .play-btn {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 0.95rem !important;
+      }
+    }
 
     @keyframes floatAuto {
       0% {
         transform: translateY(0px) rotate(-3deg) scale(1);
       }
       50% {
-        transform: translateY(-12px) rotate(2deg) scale(1.03);
+        transform: translateY(-8px) rotate(2deg) scale(1.02);
       }
       100% {
-        transform: translateY(-5px) rotate(-1deg) scale(0.98);
+        transform: translateY(-4px) rotate(-1deg) scale(0.98);
       }
     }
 
-    /* Indicador inferior */
-    .footer-hint {
-      text-align: center;
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.4);
-      margin-bottom: 5px;
-    }
-
-    /* Reproductor flotante estilo tarjeta */
+    /* Reproductor flotante */
     .player-card {
       position: fixed;
-      bottom: 24px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       width: min(90vw, 340px);
-      background: rgba(18, 8, 28, 0.65);
+      background: rgba(18, 8, 28, 0.75);
       border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 20px;
-      padding: 14px 18px;
+      border-radius: 18px;
+      padding: 12px 16px;
       backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(164, 99, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(164, 99, 255, 0.25);
       z-index: 10;
       text-align: center;
       pointer-events: auto;
     }
 
     .track-title {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: #ffffff;
     }
 
     .track-sub {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: #d9b8ff;
       margin-top: 2px;
     }
@@ -156,7 +183,7 @@
       height: 4px;
       background: rgba(255, 255, 255, 0.2);
       border-radius: 2px;
-      margin: 12px 0 6px;
+      margin: 8px 0 5px;
       cursor: pointer;
     }
 
@@ -173,7 +200,7 @@
     .player-times {
       display: flex;
       justify-content: space-between;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #c9b6de;
     }
 
@@ -181,17 +208,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      margin-top: 8px;
+      gap: 16px;
+      margin-top: 6px;
     }
 
     .ctrl-btn, .heart-btn {
       background: none;
       border: none;
       color: #ffffff;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
-      opacity: 0.8;
+      opacity: 0.85;
       transition: transform 0.2s, opacity 0.2s;
     }
 
@@ -205,13 +232,13 @@
     }
 
     .play-btn {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
       border: none;
       background: rgba(255, 255, 255, 0.15);
       color: #fff;
-      font-size: 1.05rem;
+      font-size: 1rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -236,7 +263,7 @@
       <p>mi universo tiene sentido.</p>
     </div>
 
-    <!-- Fotos de muestra en los bordes -->
+    <!-- Fotos en las 4 esquinas -->
     <div class="photo-card pos-top-left">
       <img src="/Fotos/WhatsApp Image 2026-09-21 at 1.35.12 PM.jpeg" alt="Foto 1">
       <p>Cada momento contigo</p>
@@ -257,7 +284,7 @@
       <p>Eres mi hoy y mañana</p>
     </div>
 
-    <!-- Cajoncito de Música Reproductor -->
+    <!-- Reproductor de Música -->
     <div class="player-card">
       <div class="player-info">
         <div class="track-title" id="trackTitle">Por Eso Te Amo</div>
@@ -280,14 +307,11 @@
         <button class="heart-btn" id="likeBtn">♥</button>
       </div>
     </div>
-
-    <div class="footer-hint">Toca y arrastra para explorar la galaxia ✦</div>
   </div>
 
-  <!-- Audio apuntando a tu archivo descargado -->
   <audio id="bg-audio" loop autoplay src="/Music/Por Eso Te Amo (Reempaque).mp3" preload="metadata"></audio>
 
-  <!-- Librerías Three.js + Postprocesamiento Bloom -->
+  <!-- Librerías Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
@@ -316,7 +340,10 @@
 
       scene = new THREE.Scene();
       camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 10, 22);
+
+      // Alejar un poco la cámara en pantallas verticales (celulares)
+      const isMobile = window.innerWidth <= 600;
+      camera.position.set(0, isMobile ? 12 : 10, isMobile ? 28 : 22);
 
       renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -347,14 +374,13 @@
 
       buildHeart();
       buildGalaxy();
-      buildStarfield(); // Campo de estrellas 3D de fondo
+      buildStarfield();
       build3DTextSprites();
 
       window.addEventListener('resize', onWindowResize);
       animate();
     }
 
-    // 1. CORAZÓN CENTRAL 3D
     function buildHeart() {
       const shape = new THREE.Shape();
       const x = 0, y = 0;
@@ -395,7 +421,6 @@
       scene.add(heartMesh);
     }
 
-    // 2. ÓRBITA DE PARTÍCULAS
     function buildGalaxy() {
       const particleCount = 28000;
       const geometry = new THREE.BufferGeometry();
@@ -447,7 +472,6 @@
       galaxyGroup.add(points);
     }
 
-    // 3. FONDO DE ESTRELLAS CÓSMICAS 3D
     function buildStarfield() {
       const starsCount = 4000;
       const geometry = new THREE.BufferGeometry();
@@ -493,7 +517,6 @@
       scene.add(starField);
     }
 
-    // 4. TEXTOS 3D
     function build3DTextSprites() {
       LABELS.forEach((item, i) => {
         const canvas = document.createElement('canvas');
@@ -563,8 +586,11 @@
     }
 
     function onWindowResize() {
+      const isMobile = window.innerWidth <= 600;
       camera.aspect = window.innerWidth / window.innerHeight;
+      camera.position.set(0, isMobile ? 12 : 10, isMobile ? 28 : 22);
       camera.updateProjectionMatrix();
+
       renderer.setSize(window.innerWidth, window.innerHeight);
       composer.setSize(window.innerWidth, window.innerHeight);
     }
@@ -588,18 +614,15 @@
         return `${m}:${ss}`;
       }
 
-      // Configurar volumen suave al 30%
       if (audio) {
         audio.volume = 0.3;
       }
 
-      // Reproducción automática al abrir la página
       function startAutoplay() {
         if (audio && audio.paused) {
           audio.play().then(() => {
             playBtn.textContent = '❚❚';
           }).catch(() => {
-            // Si el navegador requiere interacción previa, activa en el primer toque
             const enableAudioOnClick = () => {
               audio.play().then(() => {
                 playBtn.textContent = '❚❚';
